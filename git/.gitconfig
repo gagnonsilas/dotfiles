@@ -1,0 +1,12 @@
+[protocol "file"]
+	allow = always
+[user]
+	name = gagnonsilas
+	email = gagnon.silas@gmail.com
+[core]
+	autocrlf = input
+	editor = vim
+[credential]
+	helper = libsecret
+[pull]
+	rebase = false
