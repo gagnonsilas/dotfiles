@@ -30,3 +30,9 @@ vnoremap o ;
 " line numbers
 set number
 
+
+" window pane navigation
+map <silent> <c-e> :wincmd k<CR>
+nmap <silent> <c-n> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-i> :wincmd l<CR>
