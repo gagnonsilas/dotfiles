@@ -23,7 +23,7 @@ cat ~/.cache/wal/sequences
 
 alias ls='ls --color=auto'
 alias grep='grep -i'
-alias vim='nvim'
+#alias vim='nvim'
 alias mkdir="mkdir -p"
 alias la="ls -a"
 alias ra="rm -r"
