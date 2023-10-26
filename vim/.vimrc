@@ -26,8 +26,12 @@ set langmap=nj,ek,il,jn,ke,li,NJ,EK,IL,JN,KE,LI
 set number
 
 
+
+
 " window pane navigation
 map <silent> <c-e> :wincmd k<CR>
 nmap <silent> <c-n> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-i> :wincmd l<CR>
+
+

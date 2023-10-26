@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # make sure we have pulled in and updated any submodules
-git submodule initn
-git submodule update
+#git submodule initn
+#git submodule update
 
 # what directories should be installable by all users including the root user
 base=(
