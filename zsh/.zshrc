@@ -27,6 +27,7 @@ alias grep='grep -i'
 alias mkdir="mkdir -p"
 alias la="ls -a"
 alias ra="rm -r"
+alias wal="wal -o ~/.config/pywal/update.sh --saturate 1"
 
 #PS1="\[\033[0;34m\] \W \[\033[0;32m\]\$ \[\033[0m\]"
 

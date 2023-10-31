@@ -21,6 +21,8 @@ useronly=(
     polybar
     ranger
     rofi
+    fontconfig
+    pywal
 )
 
 # run the stow command for the passed in directory ($2) in location $1

@@ -60,7 +60,7 @@ bindsym $mod+F2 exec firefox
 bindsym $mod+Shift+q kill
 
 # Start Rofi
-bindcode $mod+40 exec rofi -show drun
+bindcode $mod+40 exec rofi -show drun -show-icons
 
 # keybinds
 bindsym $mod+Print exec --no-startup-id flameshot gui
@@ -95,7 +95,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+w layout toggle
 bindcode $mod+c layout toggle split
 
 # toggle tiling / floating
@@ -198,6 +198,3 @@ bindsym $mod+r mode "resize"
 
 # Start PolyBar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# Floating window defaults
-#for_window [title="app"] floating enable
