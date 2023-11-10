@@ -21,6 +21,8 @@ syntax on
 " colemak bindings
 set langmap=nj,ek,il,jn,ke,li,NJ,EK,IL,JN,KE,LI
 
+map k ge
+map j gn
 
 " line numbers
 set number

@@ -19,7 +19,7 @@ SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS
 
 # Color Scheme
-cat ~/.cache/wal/sequences
+cat /home/silas/.cache/wal/sequences
 
 alias ls='ls --color=auto'
 alias grep='grep -i'

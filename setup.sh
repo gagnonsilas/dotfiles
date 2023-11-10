@@ -23,6 +23,7 @@ useronly=(
     rofi
     fontconfig
     pywal
+    discord
 )
 
 # run the stow command for the passed in directory ($2) in location $1
@@ -36,19 +37,22 @@ stowit() {
 }
 
 echo ""
-echo "Stowing apps for user: ${whoami}"
+
+echo "Stowing global apps"
 
 # install apps available to local users and root
 for app in ${base[@]}; do
     stowit "${HOME}" $app 
 done
 
+echo "Stowing apps for user: $(whoami)"
+
 # install only user space folders
-for app in ${useronly[@]}; do
-    if ! "$(whoami)" = *"root"*; then
-        stowit "${HOME}" $app 
-    fi
-done
+if [ "$(whoami)" != "root" ]; then
+    for app in ${useronly[@]}; do
+        stowit "${HOME}" $app
+    done
+fi
 
 echo ""
 echo "##### ALL DONE"
