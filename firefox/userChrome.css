@@ -73,7 +73,7 @@
 }
 
 #PersonalToolbar{
-  margin-left: var(--thin-tab-width);
+  margin-left: 0;
   --uc-bm-height: 20px; /* Might need to adjust if the toolbar has other buttons */
   --uc-bm-padding: 4px; /* Vertical padding to be applied to bookmarks */
   /* --uc-autohide-toolbar-delay: 250ms; The toolbar is hidden after 0.25s */
