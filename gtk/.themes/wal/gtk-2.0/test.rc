@@ -1,0 +1,18 @@
+# Text/base
+gtk-color-scheme = "text_color:white\nbase_color:#151d2b"
+# Foreground/background
+gtk-color-scheme = "fg_color:#d3dae3\nbg_color:#182030"
+# Selected foreground/background
+gtk-color-scheme = "selected_fg_color:#d3dae3\nselected_bg_color:#00819e"
+# Insensitive foreground/background
+gtk-color-scheme = "insensitive_fg_color:#00819e\ninsensitive_bg_color:#182030"
+# Menus
+gtk-color-scheme = "menu_color:#1c2538"
+# Links
+gtk-color-scheme = "link_color:#00819e\nvisited_link_color:#00819e"
+# Treeview headers
+gtk-color-scheme = "column_header_color:#2b3046\nhover_column_header_color:#e0f1f4"
+# Window decoration
+gtk-color-scheme = "window_color:#182030"
+# Tooltips
+gtk-color-scheme = "tooltip_fg_color:#d3dae3\ntooltip_bg_color:#1c2538"
