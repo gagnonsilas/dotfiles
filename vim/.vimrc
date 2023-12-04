@@ -1,8 +1,16 @@
 " Disable compatibility with vi which can cause unexpected issues.
-" set nocompatible
+set nocompatible
 
 " Enable type file detection. Vim will be able to try to detect the type of file in use.
+
 filetype on
+
+" Plugins
+call plug#begin()
+
+Plug 'preservim/nerdtree'
+
+call plug#end()
 
 " Tab width settings
 set tabstop=4
@@ -27,7 +35,8 @@ map j gn
 " line numbers
 set number
 
-
+" quick replace all
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 
 " window pane navigation
