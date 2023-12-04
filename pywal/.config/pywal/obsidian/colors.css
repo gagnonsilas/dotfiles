@@ -1,0 +1,18 @@
+  --background-primary: {background};
+  --background-primary-alt: {background};
+  --background-accent: {color1};
+  --background-secondary: {color0};
+  --background-secondary-alt: {color0};
+  --text-accent: {color4};
+  --text-accent-hover: {color1};
+  --background-modifier-border: {color3};
+  --text-highlight-bg: {color3};
+  --text-selection: {color5};
+  --red: {color7};
+  --green: {color6};
+  --blue: {color5};
+  --purple: {color4};
+  --aqua: {color3};
+  --yellow: {color2};
+  --orange: {color1};
+  --color-base-30: var(  --aqua);
