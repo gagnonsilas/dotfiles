@@ -30,7 +30,6 @@ alias mkdir="mkdir -p"
 alias la="ls -a"
 alias rr="rm -r"
 alias wal="wal -o ~/.config/pywal/update.nu --saturate 1"
-alias sudo=doas
 alias hx=helix
 alias neofetch="neofetch | lolcat"
 alias uwufetch="uwufetch | lolcat"

@@ -18,8 +18,7 @@ font pango:monospace 8
 set $refresh_i3status killall -SIGUSR1 i3status
 
 ## STARTUP
-exec --no-startup-id xcape -e 'Control_L=Escape'
-exec_always --no-startup-id autorandr --cycle
+exec_always --no-startup-id xcape -e 'Control_L=Escape'
 exec_always --no-startup-id "libinput-gestures-setup restart"
 exec_always --no-startup-id "i3-autolayout autolayout"
 

@@ -6,7 +6,7 @@
 
 /* File picker: Make current file purple! */
 body:not(.is-grabbing) .nav-file-title.is-active:hover, body:not(.is-grabbing) .nav-folder-title.is-active:hover, .nav-file-title.is-active, .nav-folder-title.is-active {
-	color: #ffffff05
+	color: #ffffff
 }
 
 select,
