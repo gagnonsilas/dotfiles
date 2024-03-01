@@ -1,9 +1,0 @@
-# ~/.sshrc
-
-alias vim="vim -u $SSHHOME/.sshrc.d/.vimrc"
-alias ls='ls --color=auto'
-alias grep='grep -i'
-alias mkdir="mkdir -p"
-alias la="ls -a"
-alias rr="rm -r"
-
