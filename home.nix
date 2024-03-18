@@ -62,11 +62,8 @@
     webcord
     alacritty
     feh
-    meh
     gimp
     freecad
-    calculix
-    gmsh
     prusa-slicer
     obsidian
     vscode

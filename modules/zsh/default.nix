@@ -39,12 +39,13 @@
       bindkey ';6C' forward-word 
       bindkey ';6D' backward-word 
     '';
-      # setopt no_global_rcs
 
+      # setopt no_global_rcs
     # ZSH better VI mode 
     # initExtra = ''
     #     source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
     # '';
+
     # zplug = {
     #   enable = true;
     #   plugins = [

@@ -85,9 +85,9 @@ in {
         "${mod}+Shift+9" = "move container to workspace number 9; workspace number 9";
 
 
-        "XF86AudioRaiseVolume" = "exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'";
-        "XF86AudioLowerVolume" =  "exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'h";
-        "XF86AudioMute" = "exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'";
+        "XF86Audioraisevolume" = "exec 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'";
+        "XF86Audiolowervolume" =  "exec 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'";
+        "XF86AudioMute" = "exec 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'";
       };
 
       keycodebindings = {
@@ -117,6 +117,10 @@ in {
           xkb_variant = "colemak,";
           xkb_options = "grp:alt_shift_toggle,caps:ctrl_modifier";          
         };
+        "type:touchpad" = {
+          tap = "enabled";
+          natural_scroll = "enabled";
+        };
       };
     
       gaps = {
@@ -138,6 +142,7 @@ in {
           position = "bottom";
         }
       ];
+
     };
   };
 }
