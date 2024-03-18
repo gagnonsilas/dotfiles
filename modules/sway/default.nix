@@ -118,6 +118,7 @@ in {
           xkb_options = "grp:alt_shift_toggle,caps:ctrl_modifier";          
         };
         "type:touchpad" = {
+          dwt = "enabled";
           tap = "enabled";
           natural_scroll = "enabled";
         };
