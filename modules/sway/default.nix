@@ -22,6 +22,10 @@ in {
     enable = true;
     xwayland = true;
 
+    extraSessionCommands = ''
+      export _JAVA_AWT_WM_NONREPARENTING=1
+    '';
+
     config = { 
       modifier = mod;
       

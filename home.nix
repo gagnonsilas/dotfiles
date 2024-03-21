@@ -8,6 +8,7 @@
     ./modules/helix
     ./modules/alacritty
     ./modules/zsh
+    ./modules/firefox
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -73,6 +74,7 @@
     peek
     vlc
     inkscape
+    logisim
 
     # Services
     libnotify
@@ -124,6 +126,7 @@
   xdg.desktopEntries = {
     webcord = {
       name = "Webcord";
+      icon = "webcord";
       genericName = "Discord";
       exec = "webcord";
       terminal = false;
