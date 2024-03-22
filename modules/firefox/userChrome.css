@@ -1,4 +1,4 @@
-.titlebar-buttonbox-container{ display:none } 
+.titlebar-buttonbox-container{ display:none }
 
 :root[tabsintitlebar]{
   --uc-window-control-width: 138px; /* Space reserved for window controls */
