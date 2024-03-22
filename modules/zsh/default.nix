@@ -5,7 +5,7 @@
     enable = true;
 
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
 
     history = {
       ignoreDups = true;

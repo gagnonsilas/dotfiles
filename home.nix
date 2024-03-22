@@ -75,6 +75,7 @@
     vlc
     inkscape
     logisim
+    kicad
 
     # Services
     libnotify
@@ -121,6 +122,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
+
 
   # Random Configs
   xdg.desktopEntries = {
