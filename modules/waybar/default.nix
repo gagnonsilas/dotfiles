@@ -27,7 +27,7 @@
         };
 
         "pulseaudio" = {
-          "on-click" = "pavucontrol";
+          "on-click" = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
 
         "group/hardware" = {

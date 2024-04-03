@@ -5,21 +5,44 @@
     # libclang
     clang-tools
     lldb
-    nil 
+    nixd
     glibc
     uclibc
+
+    # Language servers
+    vhdl-ls
+    verible
+    svls
   ];
 
-
-  
   programs.helix = {
     enable = true;
 
+    languages = {
+      language-server.cpp-lsp= { 
+        command = "clangd"; 
+        args = [
+          "--compile-commands-dir=compile_commands_directory"
+        ];
+      };
+      language-server.verilog-lsp= { 
+        command = "svls"; 
+      };
+      language = [{
+        name = "cpp";
+      }];
+    };
+
+    
+
     settings = {
-      theme = "base16_default";
+      theme = "doom_acario_dark";
       editor = {
         bufferline = "always";
-        file-picker.hidden = false;
+        file-picker = {
+          hidden = false;
+          git-ignore = false;
+        };
         indent-guides.render = true;
         auto-pairs = true;
         line-number = "relative";
@@ -61,8 +84,11 @@
           e = "extend_line_up";
           i = "extend_char_right";
           h = "extend_char_left";
+          N = "extend_search_next";
+          E = "extend_search_prev";
         }; 
       };
+
     };
   };
 }
