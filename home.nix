@@ -54,6 +54,7 @@
     platformio
     cowsay
     figlet
+    zoxide
 
     # Desktop
     firefox
@@ -76,6 +77,7 @@
     inkscape
     logisim
     kicad
+    qgis
 
     # Services
     libnotify
@@ -142,6 +144,7 @@
     userEmail = "gagnon.silas@gmail.com";
     extraConfig = {
       pull.rebase = false;
+      push.autoSetupRemote = true;
     };
   };
   # Home Manager can also manage your environment variables through
