@@ -57,6 +57,7 @@
     zoxide
     usbutils
     gdu
+    imagemagick
 
     # Desktop
     firefox

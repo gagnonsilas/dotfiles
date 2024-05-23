@@ -16,7 +16,16 @@ in {
     wl-clipboard
   ];
 
-  programs.swaylock.enable = true;
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+    settings = {
+      screenshots = true;
+      indicator-radius = 64;
+      effect-blur = "7x5";
+      clock = true;
+    };
+  };
   
   wayland.windowManager.sway = {
     enable = true;
@@ -68,6 +77,7 @@ in {
         "${mod}+Shift+c" = "restart";
         "${mod}+Shift+r" = "reload";
         "${mod}+Shift+x" = "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'swaymsg exit'";
+        "${mod}+l" = "exec swaylock";
 
         # Workspaces
         "${mod}+1" = "workspace number 1";
