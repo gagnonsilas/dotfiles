@@ -55,13 +55,15 @@
     cowsay
     figlet
     zoxide
+    usbutils
+    gdu
 
     # Desktop
     firefox
     xfce.thunar
     xfce.thunar-volman
     dunst
-    webcord
+    vesktop
     alacritty
     feh
     gimp
@@ -78,6 +80,7 @@
     logisim
     kicad
     qgis
+    pulseview
 
     # Services
     libnotify
@@ -95,6 +98,7 @@
     # Games
     jdk8
     prismlauncher
+    alsa-oss
 
     # Windowsnn
     wineWowPackages.wayland
@@ -128,11 +132,19 @@
 
   # Random Configs
   xdg.desktopEntries = {
-    webcord = {
-      name = "Webcord";
-      icon = "webcord";
-      genericName = "Discord";
-      exec = "webcord";
+    # webcord = {
+    #   name = "Webcord";
+    #   icon = "webcord";
+    #   genericName = "Discord";
+    #   exec = "webcord";
+    #   terminal = false;
+    #   type = "Application";
+    # };
+    helix = {
+      name = "Hx";
+      icon = "helix";
+      genericName = "Text Editor";
+      exec = "foot -e hx";
       terminal = false;
       type = "Application";
     };

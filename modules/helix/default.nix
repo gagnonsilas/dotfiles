@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+
   home.packages = with pkgs; [
     # libclang
     clang-tools
@@ -13,6 +14,8 @@
     vhdl-ls
     verible
     svls
+    python311Packages.python-lsp-server
+    nodePackages.bash-language-server
   ];
 
   programs.helix = {
@@ -28,9 +31,18 @@
       language-server.verilog-lsp= { 
         command = "svls"; 
       };
-      language = [{
-        name = "cpp";
-      }];
+      language = [
+        {
+          name = "cpp";
+          indent = { 
+            tab-width = 4; 
+            unit = " "; 
+          };
+        }
+        {
+          name = "verilog";
+        }
+      ];
     };
 
     

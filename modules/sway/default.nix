@@ -61,6 +61,8 @@ in {
         "${mod}+f" = "fullscreen toggle";
         "${mod}+Shift+space" = "floating toggle";
         "${mod}+r" = "mode resize";
+        "${mod}+t" = "layout toggle tabbed split";
+
 
         # Sway
         "${mod}+Shift+c" = "restart";
@@ -88,6 +90,8 @@ in {
         "${mod}+Shift+8" = "move container to workspace number 8; workspace number 8";
         "${mod}+Shift+9" = "move container to workspace number 9; workspace number 9";
 
+        "${mod}+w" = "[class=\"Firefox\"] focus";
+
 
         "XF86Audioraisevolume" = "exec 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'";
         "XF86Audiolowervolume" =  "exec 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'";
@@ -98,6 +102,10 @@ in {
         "233" = "exec light -A 5";
         "232" = "exec light -U 5";
       }; 
+
+      focus = {
+        newWindow = "focus";
+      };
 
       startup = [
         { 
@@ -148,6 +156,19 @@ in {
         }
       ];
 
+    };
+  };
+
+  programs.foot = {
+    enable = true;
+
+    settings = {
+      main = {
+        font = "FiraMono Nerd Font Mono:style=Regular:size=8.5";
+        # font = "CaskaydiaMono NF:size=7";
+        # font = "JetBrainsMono NF:size=8.5";
+        # font = "monospace:siez=9.5";
+      };
     };
   };
 }
