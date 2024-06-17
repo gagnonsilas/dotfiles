@@ -58,6 +58,7 @@
     usbutils
     gdu
     imagemagick
+    pcsclite
 
     # Desktop
     firefox
