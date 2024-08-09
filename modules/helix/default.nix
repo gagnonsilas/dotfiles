@@ -3,7 +3,6 @@
 {
 
   home.packages = with pkgs; [
-    # libclang
     clang-tools
     lldb
     nixd
@@ -14,6 +13,8 @@
     vhdl-ls
     verible
     svls
+    zls
+    nil
     python311Packages.python-lsp-server
     nodePackages.bash-language-server
   ];

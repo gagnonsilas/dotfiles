@@ -11,9 +11,10 @@ in {
     swww
     waybar
     foot
-    rofi-wayland
     autotiling-rs
     wl-clipboard
+    wtype
+    mako
   ];
 
   programs.swaylock = {
@@ -26,6 +27,7 @@ in {
       clock = true;
     };
   };
+
   
   wayland.windowManager.sway = {
     enable = true;
@@ -167,6 +169,14 @@ in {
       ];
 
     };
+
+    extraConfig = ''
+      bindgesture swipe:4:right workspace prev
+      bindgesture swipe:4:left workspace next
+
+      bindgesture swipe:3:left exec wtype -M alt -P right -m alt
+      bindgesture swipe:3:right exec wtype -M alt -P left -m alt
+    '';
   };
 
   programs.foot = {
@@ -181,4 +191,13 @@ in {
       };
     };
   };
+
+  services.mako = {
+    enable = true;
+    font = "monospace 8";
+    defaultTimeout = 10000;
+    borderSize = 2;
+    borderRadius = 4;
+  };
+
 }
