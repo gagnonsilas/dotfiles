@@ -1,15 +1,24 @@
 { pkgs, ... }:
 
 {
+
+  home.packages = with pkgs; [
+    waybar-mpris
+  ];
+
   programs.waybar = {
     enable = true;
+
+
+    style = ./style.css;
+    
     settings = {
       mainBar = {
         layer = "top";
         position = "bottom";
         height = 20;
 
-        modules-left = [ "sway/workspaces" "sway/mode" ];
+        modules-left = [ "sway/workspaces" "sway/mode" "custom/waybar-mpris"];
         modules-center = [ "clock" ];
         modules-right = [ "group/media" "group/hardware" "network" "tray"];
 
@@ -28,6 +37,18 @@
 
         "pulseaudio" = {
           "on-click" = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          "format" = "{volume}% <big><big>{icon}</big></big>";
+          "format-muted" = "{volume}% <big><big>󰖁</big></big>";
+          "format-icons" = {
+            "headphone" = "󰋋";
+            "default" = ["󰕿" "󰖀" "󰕾"];
+          };
+        };
+
+
+        "clock" = {
+          "format" =  "{:%a, %d. %b  %H:%M}";
+          "format-alt" =  "{:%m / %d / %Y  %H:%M}";
         };
 
         "group/hardware" = {
@@ -40,10 +61,30 @@
           ];
         };
 
+        "backlight" = {
+          "format" = "{percent}% <big><big>{icon}</big></big>";
+          "format-icons" = ["" "" "" "" "" "" "" "" ""];
+        };
+
+        "battery" = {
+          "format" = "{capacity}% <big><big>{icon}</big></big>";
+          "format-charging" = "{capacity}% <big><big>󰂄</big></big>";
+          "format-icons" = {
+            "default" = ["" "" "" "" ""];
+          };
+        };
+
+
         "tray" = {
           "spacing" = 10;
         };
 
+        "custom/waybar-mpris" = {
+          "return-type" = "json";
+          "exec" = "waybar-mpris --position --autofocus --pause \"󰏤\" --order \"SYMBOL:TITLE:POSITION\"";
+          "on-click" = "waybar-mpris --send toggle";
+          "escape" = true;
+        };
       };
     };
 
