@@ -9,6 +9,9 @@
     ./modules/alacritty
     ./modules/zsh
     ./modules/firefox
+    ./modules/rofi
+    ./modules/ranger
+    ./modules/discord
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -59,13 +62,13 @@
     gdu
     imagemagick
     pcsclite
+    fzf
+    vesktop
 
     # Desktop
     firefox
     xfce.thunar
     xfce.thunar-volman
-    dunst
-    vesktop
     alacritty
     feh
     gimp
@@ -83,7 +86,11 @@
     kicad
     qgis
     pulseview
-
+    zoom-us
+    cloudcompare
+    # armcord
+    loupe
+    
     # Services
     libnotify
     xdg-utils
@@ -134,14 +141,6 @@
 
   # Random Configs
   xdg.desktopEntries = {
-    # webcord = {
-    #   name = "Webcord";
-    #   icon = "webcord";
-    #   genericName = "Discord";
-    #   exec = "webcord";
-    #   terminal = false;
-    #   type = "Application";
-    # };
     helix = {
       name = "Hx";
       icon = "helix";
@@ -151,6 +150,7 @@
       type = "Application";
     };
   };
+
 
   programs.git = {
     enable = true;
