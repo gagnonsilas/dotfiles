@@ -56,6 +56,8 @@ in {
         "${mod}+s" = "exec ${menu}";
         "${mod}+Return" = "exec ${terminal}";
         "${mod}+Print" = "exec grim -g \"$(slurp -d)\" - | wl-copy -t image/png";
+        "Print" = "exec grim - | wl-copy -t image/png";
+        "Pause" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
 
         # Focus
         "${mod}+h" = "focus left";
