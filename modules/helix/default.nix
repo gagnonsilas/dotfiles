@@ -17,6 +17,9 @@
     nil
     python311Packages.python-lsp-server
     nodePackages.bash-language-server
+    # typst-lsp
+    tinymist
+    typstyle
   ];
 
   programs.helix = {
@@ -32,6 +35,14 @@
       language-server.verilog-lsp= { 
         command = "svls"; 
       };
+      language-server.tinymist = {
+        config = {
+          exportPdf = "onDocumentHasTitle";
+          formatterMode = "typstyle";
+          outputPath = "$root/out/$dir/$name";
+        };
+      };
+
       language = [
         {
           name = "cpp";
@@ -91,6 +102,11 @@
             E = "swap_view_up";
             I = "swap_view_right";
           };
+          space = {
+            f = "file_picker_in_current_directory";
+            F = "file_picker";
+          };
+
         };
         select = {
           n = "extend_line_down";

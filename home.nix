@@ -32,6 +32,17 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  # nixpkgs.overlays = [  (final: prev: {freecad = prev.freecad.overrideAttrs (old: {
+  #     src = pkgs.fetchFromGitHub {
+  #       owner = "FreeCad";
+  #       repo = "FreeCad";
+  #       rev = "59c1ccec3e6b70f56eeee8f94d361019b84bd850";
+  #       hash = "sha256-SsC73QPBIRkqH/ZI43oPHhug6/hiypgdP0t8n2aaiiQ=";
+  #     };
+      
+  #   });})
+  # ];
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -64,6 +75,7 @@
     pcsclite
     fzf
     vesktop
+    typst
 
     # Desktop
     firefox
@@ -90,6 +102,7 @@
     cloudcompare
     # armcord
     loupe
+    wayvnc
     
     # Services
     libnotify
@@ -110,10 +123,11 @@
     alsa-oss
 
     # Windowsnn
-    wineWowPackages.wayland
+    wine
     protontricks
     winetricks
     bottles
+    samba
     ppp
     cabextract
 
@@ -146,6 +160,14 @@
       icon = "helix";
       genericName = "Text Editor";
       exec = "foot -e hx";
+      terminal = false;
+      type = "Application";
+    };
+
+    ltspice = {
+      name = "ltspice";
+      genericName = "Circuit Simulator";
+      exec = "wine \"home/silas/.wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx86.exe\"";
       terminal = false;
       type = "Application";
     };
