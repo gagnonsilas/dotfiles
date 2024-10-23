@@ -70,7 +70,8 @@
         indent-guides.render = true;
         auto-pairs = true;
         line-number = "relative";
-        mouse = false;
+        soft-wrap.enable = true;
+        mouse = true;
         insert-final-newline = false;
         cursor-shape = {
           insert = "bar";

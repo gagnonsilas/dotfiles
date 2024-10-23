@@ -4,12 +4,13 @@
   font-size: 11;
   font-weight:bold;
   color: #f0f0f0;
-  background-color: rgba(0, 0, 0, 0);
+  /* background-color: rgba(0, 0, 0, 0); */
+  /* background: rgba(45, 45, 45, 0.8); */
   border-radius:4px;
   padding:0;
 }
 
-#waybar {
+window#waybar {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -40,4 +41,9 @@ label.module {
   margin: 0px 2px;
   padding: 0px 6px;
   /* background-color: rgba(0,83,51,0.85) */
+}
+
+/* hover popup */
+tooltip { 
+  background: rgba(45, 45, 45, 0.3);
 }

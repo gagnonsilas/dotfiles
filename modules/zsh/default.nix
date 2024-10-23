@@ -1,6 +1,9 @@
 { pkgs, config, ... }:
 
 {
+  home.packages = with pkgs; [
+    zoxide
+  ];
   programs.zsh = {
     enable = true;
 

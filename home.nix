@@ -6,12 +6,12 @@
     ./modules/theme
     ./modules/nushell
     ./modules/helix
-    ./modules/alacritty
     ./modules/zsh
     ./modules/firefox
     ./modules/rofi
     ./modules/ranger
     ./modules/discord
+    ./modules/foot
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -68,7 +68,6 @@
     platformio
     cowsay
     figlet
-    zoxide
     usbutils
     gdu
     imagemagick
@@ -78,7 +77,6 @@
     typst
 
     # Desktop
-    firefox
     xfce.thunar
     xfce.thunar-volman
     alacritty
@@ -103,6 +101,9 @@
     # armcord
     loupe
     wayvnc
+    zotero
+    nmap
+    iperf
     
     # Services
     libnotify
@@ -141,7 +142,7 @@
   # plain files is through 'home.file'.
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+    # # the Nix store. Activating the configuraDtion will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
