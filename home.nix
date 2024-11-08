@@ -60,7 +60,7 @@
     man-pages-posix
     zip
     unzip
-    globalprotect-openconnect
+    gpclient
     gcc
     curl
     bc

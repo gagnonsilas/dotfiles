@@ -48,7 +48,7 @@
 
         "clock" = {
           "format" =  "{:%a, %d. %b  %H:%M}";
-          "format-alt" =  "{:%m / %d / %Y  %H:%M}";
+          "format-alt" =  "{:%m / %d / %Y  %H:%M:%S}";
         };
 
         "group/hardware" = {

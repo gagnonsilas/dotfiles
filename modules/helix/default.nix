@@ -43,6 +43,12 @@
         };
       };
 
+      # language-server.nix = {
+      #   config = {
+      #     formatter = 
+      #   };
+      # };
+
       language = [
         {
           name = "cpp";

@@ -12,7 +12,7 @@
 
     history = {
       ignoreDups = true;
-      size = 1000;
+      size = 10000;
       path = "${config.xdg.dataHome}/.zsh_history";
       share = false;
     };
