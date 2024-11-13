@@ -48,6 +48,7 @@
   home.packages = with pkgs; [
     # Command line apps
     git
+    lazygit
     sshfs
     htop-vim
     neofetch
