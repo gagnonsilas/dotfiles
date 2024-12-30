@@ -2,6 +2,7 @@
 
 {
 
+
   home.packages = with pkgs; [
     clang-tools
     lldb
@@ -15,12 +16,42 @@
     svls
     zls
     nil
-    python311Packages.python-lsp-server
+    # python311Packages.python-lsp-server
     nodePackages.bash-language-server
     # typst-lsp
     tinymist
     typstyle
+    # pkgs.symlinkJoin {
+    #   name = "qc ";
+    #   paths = [writeScriptBin "qc" ''
+    #     (read a; qalc -t $a)
+    #   '' libqalculate];
+    #   buildInputs = [makeWrapper];
+    #   postBuild = "wrapProgram $out/bin/qc --prefix PATH : $out/bin";
+    # }
+    libqalculate
+    (writeScriptBin "qc" ''
+      #!${pkgs.zsh}/bin/zsh
+      read a 
+      qalc -t $a
+    '')
+
+    # (writeTextFile {
+    #   name = "qc";
+    #   executable = true;
+    #   destination = "/bin/}";
+    #   text = ''
+    #     read a 
+    #     qalc -t $a
+    #     '';
+    #   checkPhase = ''
+    #     ${stdenv.shell} -n $out/bin/${name}
+    #   '';
+    #   })
   ];
+
+  
+  
 
   programs.helix = {
     enable = true;

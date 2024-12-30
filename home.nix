@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-colors, ... }:
 {
   imports = [
     ./modules/sway
@@ -12,7 +12,11 @@
     ./modules/ranger
     ./modules/discord
     ./modules/foot
+    ./modules/git
+    nix-colors.homeManagerModules.default
   ];
+
+  colorScheme = nix-colors.colorSchemes.dracula;
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
@@ -42,6 +46,8 @@
       
   #   });})
   # ];
+
+  fonts.fontconfig.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -98,13 +104,14 @@
     qgis
     pulseview
     zoom-us
-    cloudcompare
+    # cloudcompare
     # armcord
     loupe
     wayvnc
     zotero
     nmap
     iperf
+    chirp
     
     # Services
     libnotify
@@ -128,7 +135,7 @@
     wine
     protontricks
     winetricks
-    bottles
+    # bottles
     samba
     ppp
     cabextract
@@ -137,6 +144,8 @@
     nasin-nanpa
     texliveSmall
     texlab
+    remmina
+    libqalculate
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -173,6 +182,13 @@
       terminal = false;
       type = "Application";
     };
+    chirp = {
+      name = "chirp";
+      genericName = "Radio Programmer";
+      exec = "chirp";
+      terminal = false;
+      type = "Application";
+    };
   };
 
 
@@ -184,6 +200,11 @@
       pull.rebase = false;
       push.autoSetupRemote = true;
     };
+  };
+
+
+  services.ssh-agent = {
+    enable = true;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home

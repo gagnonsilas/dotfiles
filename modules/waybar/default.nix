@@ -20,11 +20,15 @@
 
         modules-left = [ "sway/workspaces" "sway/mode" "custom/waybar-mpris"];
         modules-center = [ "clock" ];
-        modules-right = [ "group/media" "group/hardware" "network" "tray"];
+        modules-right = [ "group/media" "sway/language" "group/hardware" "network" "tray"];
 
         "sway/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
+        };
+
+        "sway/language" = {
+          "format" = "{variant}";
         };
 
         "group/media" = {

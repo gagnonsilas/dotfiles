@@ -5,6 +5,7 @@ let
   terminal = "foot";
   menu = "rofi -show drun -show-icons";
 in {
+
   home.packages = with pkgs; [
     slurp
     grim
@@ -15,6 +16,8 @@ in {
     wl-clipboard
     wtype
     mako
+
+    nerd-fonts.dejavu-sans-mono
   ];
 
   programs.swaylock = {
@@ -26,6 +29,10 @@ in {
       effect-blur = "7x5";
       clock = true;
     };
+  };
+
+  services.kanshi = {
+    enable = true;
   };
 
   
