@@ -31,10 +31,6 @@ in {
     };
   };
 
-  services.kanshi = {
-    enable = true;
-  };
-
   
   wayland.windowManager.sway = {
     enable = true;

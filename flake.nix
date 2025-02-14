@@ -8,15 +8,22 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-colors.url = "github:misterio77/nix-colors";  
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { nixpkgs, home-manager, nix-colors, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nix-colors,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
 
-    in {
+    in
+    {
       homeConfigurations."silas" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

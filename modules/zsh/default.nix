@@ -47,6 +47,7 @@
       eval "$(zoxide init --cmd cd zsh)"
       setopt no_global_rcs
       export PS1=" %F{blue}%~%f %F{green}>%f "
+      [[ -v name ]] && export PS1=" %F{magenta}($name)%f$PS1"
     '';
 
       # source /home/silas/.nix-profile/etc/profile.d/hm-session-vars.sh

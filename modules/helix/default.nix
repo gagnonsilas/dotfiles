@@ -9,16 +9,18 @@
     nixd
     glibc
     uclibc
+    # matlab-language-server
 
     # Language servers
     vhdl-ls
     verible
     svls
     zls
-    nil
+    nixd
     # python311Packages.python-lsp-server
     nodePackages.bash-language-server
     # typst-lsp
+    nixfmt-rfc-style
     tinymist
     typstyle
     # pkgs.symlinkJoin {
@@ -63,6 +65,14 @@
           "--compile-commands-dir=compile_commands_directory"
         ];
       };
+      language-server.matlab-lsp= { 
+        command = "matlab-language-server"; 
+        args = [
+          "--stdio"
+          "--matlabInstallPath /home/silas/WPI/classes/RBE/3001/matlab/install_dir/bin/matlab"
+        ];
+        # command = "mlang";
+      };
       language-server.verilog-lsp= { 
         command = "svls"; 
       };
@@ -74,19 +84,31 @@
         };
       };
 
-      # language-server.nix = {
-      #   config = {
-      #     formatter = 
-      #   };
-      # };
+      language-server.nixd = {
+        command = "nixd";
+      };
 
       language = [
         {
           name = "cpp";
+          # indent = { tab-width = 4;  unit = "   "; };
+        }
+        {
+          name = "matlab";
+          indent = { 
+            tab-width = 4; 
+            unit = "    "; 
+          };
+          language-servers = ["matlab-lsp"];
+        }
+        {
+          name = "nix";
           indent = { 
             tab-width = 4; 
             unit = " "; 
           };
+          formatter = { command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";};
+          language-servers = [ "nixd" ];
         }
         {
           name = "verilog";

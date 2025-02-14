@@ -13,6 +13,7 @@
     ./modules/discord
     ./modules/foot
     ./modules/git
+    ./modules/formula
     nix-colors.homeManagerModules.default
   ];
 
@@ -86,7 +87,6 @@
     # Desktop
     xfce.thunar
     xfce.thunar-volman
-    alacritty
     feh
     gimp
     freecad
@@ -104,8 +104,6 @@
     qgis
     pulseview
     zoom-us
-    # cloudcompare
-    # armcord
     loupe
     wayvnc
     zotero
@@ -178,7 +176,7 @@
     ltspice = {
       name = "ltspice";
       genericName = "Circuit Simulator";
-      exec = "wine \"home/silas/.wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx86.exe\"";
+      exec = "wine \"/home/silas/.wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx86.exe\"";
       terminal = false;
       type = "Application";
     };
@@ -206,6 +204,7 @@
   services.ssh-agent = {
     enable = true;
   };
+
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
   # Manager then you have to manually source 'hm-session-vars.sh' located at
