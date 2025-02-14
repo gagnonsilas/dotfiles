@@ -1,0 +1,75 @@
+{
+  "nodes": {
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1735388221,
+        "narHash": "sha256-e5IOgjQf0SZcFCEV/gMGrsI0gCJyqOKShBQU0iiM3Kg=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "7c674c6734f61157e321db595dbfcd8523e04e19",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1735603221,
+        "narHash": "sha256-hUEvv/2D2PrXi0AQof+rENFbni2TyxUgTliHVEb2eDE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9b0737128489e9a23c9570cffce7aae5bf9db899",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-hUEvv/2D2PrXi0AQof+rENFbni2TyxUgTliHVEb2eDE=",
+        "path": "/nix/store/9vw5cggd0rm9l86ppsb8afd9p2f21636-source",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixos-hardware": "nixos-hardware",
+        "nixpkgs": "nixpkgs",
+        "waveforms": "waveforms"
+      }
+    },
+    "waveforms": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1728376004,
+        "narHash": "sha256-mTib24PapKexOaTUNsGiTtZFaXR2LYaQazVBGzlnAig=",
+        "owner": "liff",
+        "repo": "waveforms-flake",
+        "rev": "1d58c63da1ce63a2896d13a3d66238ff9aca89e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "liff",
+        "repo": "waveforms-flake",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
