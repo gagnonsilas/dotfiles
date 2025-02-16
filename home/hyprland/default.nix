@@ -26,9 +26,9 @@
       "$mod" = "SUPER";
 
       env = [
-        "HYPRCURSOR_THEME,phinger-cursors-dark"
+        "HYPRCURSOR_THEME,simp1le-cursors"
         "HYPRCURSOR_SIZE,24"
-        "XCURSOR,phinger-cursors-dark"
+        "XCURSOR,simp1le-cursors"
         "XCURSOR_SIZE,24"
         "QT_QPA_PLATFORMTHEME,qt5ct"
       ];
@@ -46,6 +46,23 @@
           "$mod, F, fullscreen,"
           "$mod, Print, exec, grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
           # "Print, exec, grim - | wl-copy -t image/png"
+
+          "$mod, left, movefocus, l"
+          "$mod, right, movefocus, r"
+          "$mod, up, movefocus, u"
+          "$mod, down, movefocus, d"
+          "$mod, h, movefocus, l"
+          "$mod, n, movefocus, r"
+          "$mod, e, movefocus, u"
+          "$mod, i, movefocus, d"
+          "$mod SHIFT, left, movewindow, l"
+          "$mod SHIFT, right, movewindow, r"
+          "$mod SHIFT, up, movewindow, u"
+          "$mod SHIFT, down, movewindow, d"
+          "$mod SHIFT, h, movewindow, l"
+          "$mod SHIFT, n, movewindow, r"
+          "$mod SHIFT, e, movewindow, u"
+          "$mod SHIFT, i, movewindow, d"
         ]
         ++ (
           # workspaces
@@ -83,8 +100,22 @@
       };
       general = {
         gaps_in = 5;
-        gaps_out = 2;
+        gaps_out = 6;
         border_size = 2;
+        "col.active_border" = "rgba(4f1ab2AA)";
+        layout = "dwindle";
+      };
+
+      dwindle = {
+          # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+          pseudotile = true;
+          preserve_split = true;
+          # special_scale_factor = 1;
+          # permanent_direction_override = true;
+          # split_width_multiplier = 1;
+          # force_split = 1;
+          # preserve_split = true;
+          # smart_resizing = false;
       };
 
       gestures = {
@@ -98,6 +129,7 @@
 
       misc = {
           disable_hyprland_logo = true;
+          vfr = true;
       };
 
       exec-once = [
