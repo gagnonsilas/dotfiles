@@ -1,19 +1,19 @@
 { config, pkgs, nix-colors, ... }:
 {
   imports = [
-    ./modules/sway
-    ./modules/waybar
-    ./modules/theme
-    ./modules/nushell
-    ./modules/helix
-    ./modules/zsh
-    ./modules/firefox
-    ./modules/rofi
-    ./modules/ranger
-    ./modules/discord
-    ./modules/foot
-    ./modules/git
-    ./modules/formula
+    ./home/sway
+    ./home/waybar
+    ./home/theme
+    ./home/nushell
+    ./home/helix
+    ./home/zsh
+    ./home/firefox
+    ./home/rofi
+    ./home/ranger
+    ./home/discord
+    ./home/foot
+    ./home/git
+    ./home/formula
     nix-colors.homeManagerModules.default
   ];
 
