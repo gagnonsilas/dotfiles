@@ -6,6 +6,7 @@
     package = pkgs.simp1e-cursors;
     name = "simp1e-cursors";
     size = 24;
+    gtk.enable = true;
   };
     
 
