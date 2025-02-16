@@ -26,7 +26,7 @@
       update = "sudo nixos-rebuild switch";
       la = "ls -a";
       rr = "rm -r";
-      #neofetch = "'neofetch | lolcat'";
+      # neofetch = "'neofetch | lolcat'";
       vim = "echo ERROR";
       hm = "home-manager";
       ec = "sudoedit /etc/nixos/configuration.nix";
