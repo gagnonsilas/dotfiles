@@ -3,10 +3,15 @@
 {
   home.packages = with pkgs; [
     slurp
+    grim
     swww
     waybar
-    wofi
     foot
+    wl-clipboard
+    wtype
+    mako
+
+    nerd-fonts.dejavu-sans-mono
   ];
 
   wayland.windowManager.hyprland = {
@@ -28,6 +33,8 @@
           "$mod Shift, Q, killactive,"
           "$mod, space, togglefloating,"
           "$mod, F, fullscreen,"
+          "$mod, Print, exec, grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
+          "Print, exec, grim - | wl-copy -t image/png"
         ]
         ++ (
           # workspaces
@@ -57,9 +64,9 @@
         kb_options = "grp:alt_shift_toggle,caps:ctrl_modifier";
       };
       general = {
-        gaps_in = 4;
-        gaps_out = 0;
-        border_size = 1;
+        gaps_in = 7;
+        gaps_out = 2;
+        border_size = 2;
       };
     };
   };

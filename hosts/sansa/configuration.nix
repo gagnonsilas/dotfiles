@@ -10,6 +10,8 @@
     ./hardware-configuration.nix
   ];
 
+  networking.hostname = "sansa";
+
   boot = {
     # kernelPackages = pkgs.linuxKernel.kernels.linux_6_10;
     loader.systemd-boot.enable = true;
