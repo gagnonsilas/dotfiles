@@ -1,7 +1,6 @@
 { ... }:
 {
   networking = {
-    hostName = "sansa";
     networkmanager.enable = true;
 
     firewall.allowedTCPPorts = [
