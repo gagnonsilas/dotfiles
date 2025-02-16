@@ -20,18 +20,6 @@
     
 
     shellAliases = {
-      ls = "ls --color=auto";
-      grep = "grep --color -i";
-      mkdir = "mkdir -p";
-      update = "sudo nixos-rebuild switch";
-      la = "ls -a";
-      rr = "rm -r";
-      # neofetch = "'neofetch | lolcat'";
-      vim = "echo ERROR";
-      hm = "home-manager";
-      ec = "sudoedit /etc/nixos/configuration.nix";
-      eh = "hx ~/.config/home-manager/";
-      neofetch = "neofetch | lolcat";
     };
 
     envExtra = ''

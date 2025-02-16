@@ -18,7 +18,7 @@
         position = "bottom";
         height = 20;
 
-        modules-left = [ "sway/workspaces" "sway/mode" "custom/waybar-mpris"];
+        modules-left = [ "sway/workspaces" "hyprland/workspaces" "sway/mode" "custom/waybar-mpris"];
         modules-center = [ "clock" ];
         modules-right = [ "group/media" "sway/language" "group/hardware" "network" "tray"];
 

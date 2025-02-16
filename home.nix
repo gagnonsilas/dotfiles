@@ -2,6 +2,7 @@
 {
   imports = [
     ./home/sway
+    ./home/hyprland
     ./home/waybar
     ./home/theme
     ./home/nushell
@@ -216,6 +217,21 @@
   #
   #  /etc/profiles/per-user/silas/etc/profile.d/hm-session-vars.sh
   #
+
+  home.shellAliases = {
+      ls = "ls --color=auto";
+      grep = "grep --color -i";
+      mkdir = "mkdir -p";
+      update = "sudo nixos-rebuild switch --flake ";
+      la = "ls -a";
+      rr = "rm -r";
+      vim = "echo ERROR";
+      hm = "home-manager --flake ~/.config/nix";
+      ec = "sudoedit /etc/nixos/configuration.nix";
+      eh = "hx ~/.config/nix/";
+      neofetch = "neofetch | lolcat";
+  };
+
   home.sessionVariables = {
     PS1 = " %F{blue}%~%f %F{green}>%f ";
     EDITOR = "hx";

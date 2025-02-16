@@ -11,14 +11,26 @@
 
   gtk = {
     enable = true;
+
     theme = {
-      package = pkgs.gnome-themes-extra;
-      name = "Adwaita-Dark";
+      name = "Nordic-darker";
+      package = pkgs.nordic;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
 
-    iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita-Dark";
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
     };
 
     font = {
