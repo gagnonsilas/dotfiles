@@ -71,8 +71,8 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-kde
+      xdg-desktop-portal-hyprland
+      # xdg-desktop-portal-kde
       xdg-desktop-portal-gtk
     ];
 
@@ -81,7 +81,7 @@
       settings = {
         screencast = {
           output_name = "eDP-1";
-          max_fps = 165;
+          max_fps = 30;
           chooser_type = "simple";
           chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
         };

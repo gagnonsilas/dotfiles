@@ -222,7 +222,7 @@
       ls = "ls --color=auto";
       grep = "grep --color -i";
       mkdir = "mkdir -p";
-      update = "sudo nixos-rebuild switch --flake ";
+      update = "sudo nixos-rebuild switch --flake /home/silas/.config/nix";
       la = "ls -a";
       rr = "rm -r";
       vim = "echo ERROR";

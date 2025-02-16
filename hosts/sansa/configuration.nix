@@ -10,7 +10,7 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostname = "sansa";
+  networking.hostName = "sansa";
 
   boot = {
     # kernelPackages = pkgs.linuxKernel.kernels.linux_6_10;
