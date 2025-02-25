@@ -38,5 +38,6 @@
   fonts.packages = with pkgs; [
     nerd-fonts.symbols-only
     nerd-fonts.dejavu-sans-mono
+    xkcd-font
   ];
 }
