@@ -4,7 +4,7 @@
 
   home.pointerCursor = {
     package = pkgs.simp1e-cursors;
-    name = "simp1e-cursors";
+    name = "Simp1e-Dark";
     size = 24;
     gtk.enable = true;
   };
