@@ -15,6 +15,7 @@
     ./home/foot
     ./home/git
     ./home/formula
+    ./home/direnv
     nix-colors.homeManagerModules.default
   ];
 

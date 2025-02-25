@@ -17,8 +17,6 @@
       share = false;
     };
 
-    
-
     shellAliases = {
     };
 
@@ -34,13 +32,20 @@
       compinit -i
       eval "$(zoxide init --cmd cd zsh)"
       setopt no_global_rcs
-      export PS1=" %F{blue}%~%f %F{green}>%f "
-      [[ -v name ]] && export PS1=" %F{magenta}($name)%f$PS1"
+      setopt PROMPT_SUBST
+
+      function set_prompt {
+        export PS1="$([[ -v name ]] && echo '%F{magenta}($name)%f') %F{blue}%~%f %F{green}>%f "
+      }
+      chpwd_functions+=(set_prompt)
+      cd .
+
     '';
 
-      # source /home/silas/.nix-profile/etc/profile.d/hm-session-vars.sh
-      # PS1="test"
-    # ZSH better VI mode 
+      # [[ -v name ]] && export PS1=" %F{magenta}($name)%f$PS1"
+    # source /home/silas/.nix-profile/etc/profile.d/hm-session-vars.sh
+    # PS1="test"
+    # ZSH better VI mode
     # initExtra = ''
     #     source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
     # '';
@@ -51,9 +56,13 @@
     #     { name = "zsh-users/zsh-autosuggestions"; }
     #   ];
     # };
-      
+
+  };
+
+  programs.bash = {
+    enable = true;
+
+    bashrcExtra = ''
+    '';
   };
 }
-
-
-                  
