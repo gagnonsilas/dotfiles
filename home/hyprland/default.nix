@@ -26,11 +26,13 @@
       "$mod" = "SUPER";
 
       env = [
-        "HYPRCURSOR_THEME,simp1le-cursors"
+        "HYPRCURSOR_THEME, Simp1e-Dark"
         "HYPRCURSOR_SIZE,24"
-        "XCURSOR,simp1le-cursors"
+        "XCURSOR, Simp1e-Dark"
         "XCURSOR_SIZE,24"
         "QT_QPA_PLATFORMTHEME,qt5ct"
+        "SDL_VIDEODRIVER=wayland"
+        "GDK_BACKEND=wayland,x11"
       ];
       bindm = [
         "$mod , mouse:272, movewindow"
@@ -111,7 +113,7 @@
           pseudotile = true;
           preserve_split = true;
           # special_scale_factor = 1;
-          # permanent_direction_override = true;
+          permanent_direction_override = true;
           # split_width_multiplier = 1;
           # force_split = 1;
           # preserve_split = true;
@@ -130,6 +132,7 @@
       misc = {
           disable_hyprland_logo = true;
           vfr = true;
+          focus_on_activate = true;
       };
 
       exec-once = [
