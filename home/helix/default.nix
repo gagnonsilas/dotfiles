@@ -118,6 +118,9 @@
     };
 
     
+    ignores = [
+      ".direnv"
+    ];
 
     settings = {
       theme = "doom_acario_dark";
