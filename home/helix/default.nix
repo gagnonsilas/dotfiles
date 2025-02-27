@@ -126,6 +126,10 @@
       theme = "doom_acario_dark";
       editor = {
         bufferline = "always";
+        end-of-line-diagnostics = "hint";
+        inline-diagnostics = {
+          cursor-line = "error";
+        };
         file-picker = {
           hidden = false;
           git-ignore = false;
