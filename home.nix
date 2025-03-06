@@ -114,7 +114,6 @@
     chirp
     
     # Services
-    libnotify
     xdg-utils
 
     # Configuration
@@ -145,6 +144,7 @@
     texliveSmall
     texlab
     remmina
+    rustdesk
     libqalculate
   ];
 

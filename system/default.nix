@@ -9,6 +9,7 @@
     ./programs.nix
     ./security.nix
     ./services.nix
+    ./battery.nix
     ./ssh.nix
   ];
 
