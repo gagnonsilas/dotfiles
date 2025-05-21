@@ -10,7 +10,6 @@
       };
 
     };
-
     keyd = {
       enable = true;
 

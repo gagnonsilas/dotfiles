@@ -40,6 +40,8 @@
       chpwd_functions+=(set_prompt)
       cd .
 
+      export TERM=xterm
+
     '';
 
       # [[ -v name ]] && export PS1=" %F{magenta}($name)%f$PS1"

@@ -14,7 +14,7 @@ let
       ki-open = pkgs.writeScriptBin "ki-open"  ''
           #!${pkgs.zsh}/bin/zsh
 
-          PROJECT=$(tree ~/projects/ev25 -fi | grep .kicad_pro | sed 's/\.\///' | rofi -dmenu -i -matching-negate-char '\0')
+          PROJECT=$(tree ~/projects -fi | grep .kicad_pro | sed 's/\.\///' | rofi -dmenu -i -matching-negate-char '\0')
 
           [[ ! -z "$PROJECT" ]] && kicad $PROJECT
 

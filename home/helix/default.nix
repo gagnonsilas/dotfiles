@@ -79,9 +79,9 @@
       };
       language-server.tinymist = {
         config = {
-          exportPdf = "onDocumentHasTitle";
+          # exportPdf = "onDocumentHasTitle";
           formatterMode = "typstyle";
-          outputPath = "$root/out/$dir/$name";
+          # outputPath = "$root/out/$dir/$name";
         };
       };
 
@@ -173,6 +173,11 @@
           space = {
             f = "file_picker_in_current_directory";
             F = "file_picker";
+          };
+          q = {
+            # p = ":run-shell-command";
+            # w = ":";
+            f = ":format";
           };
 
         };

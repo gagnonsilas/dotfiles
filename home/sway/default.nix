@@ -58,7 +58,7 @@ in {
         "${mod}+Shift+q" = "kill";
         "${mod}+s" = "exec ${menu}";
         "${mod}+Return" = "exec ${terminal}";
-        "${mod}+Print" = "exec grim -g \"$(slurp -d)\" - | wl-copy -t image/png";
+        "${mod}+Print" = "exec grim -g \"$(slurp -d)\" - | tee /tmp/screenshot.png | wl-copy -t image/png";
         "Print" = "exec grim - | wl-copy -t image/png";
         "Pause" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
 

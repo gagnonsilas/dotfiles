@@ -29,10 +29,10 @@
         "HYPRCURSOR_THEME, Simp1e-Dark"
         "HYPRCURSOR_SIZE,24"
         "XCURSOR, Simp1e-Dark"
-        "XCURSOR_SIZE,24"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
-        "SDL_VIDEODRIVER=wayland"
-        "GDK_BACKEND=wayland,x11"
+        "XCURSOR_SIZE, 24"
+        "QT_QPA_PLATFORMTHEME, qt5ct"
+        "SDL_VIDEODRIVER, wayland"
+        "GDK_BACKEND, wayland,x11"
       ];
       bindm = [
         "$mod , mouse:272, movewindow"
@@ -45,7 +45,10 @@
           "$mod, code:40, exec, rofi -show drun -show-icons"
           "$mod Shift, Q, killactive,"
           "$mod, space, togglefloating,"
-          "$mod, F, fullscreen,"
+          "$mod, f, fullscreen,"
+          "$mod, t, togglegroup"
+          "$mod, r, changegroupactive"
+          
           "$mod, Print, exec, grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
           # "Print, exec, grim - | wl-copy -t image/png"
 
@@ -54,17 +57,18 @@
           "$mod, up, movefocus, u"
           "$mod, down, movefocus, d"
           "$mod, h, movefocus, l"
-          "$mod, n, movefocus, r"
+          "$mod, i, movefocus, r"
           "$mod, e, movefocus, u"
-          "$mod, i, movefocus, d"
+          "$mod, n, movefocus, d"
           "$mod SHIFT, left, movewindow, l"
           "$mod SHIFT, right, movewindow, r"
           "$mod SHIFT, up, movewindow, u"
           "$mod SHIFT, down, movewindow, d"
           "$mod SHIFT, h, movewindow, l"
-          "$mod SHIFT, n, movewindow, r"
+          "$mod SHIFT, i, movewindow, r"
           "$mod SHIFT, e, movewindow, u"
-          "$mod SHIFT, i, movewindow, d"
+          "$mod SHIFT, n, movewindow, d"
+          "$mod SHIFT, n, togglesplit" 
         ]
         ++ (
           # workspaces
@@ -98,7 +102,13 @@
         kb_layout = "us,us";
         kb_variant = "colemak,";
         kb_options = "grp:alt_shift_toggle,caps:ctrl_modifier";
-        touchpad.natural_scroll = true;
+        touchpad = {
+          scroll_factor = 0.4;
+          natural_scroll = true;
+        }; 
+        force_no_accel = false;
+        accel_profile = "adaptive";
+        sensitivity = 0.2;
       };
       general = {
         gaps_in = 5;

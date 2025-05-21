@@ -16,9 +16,11 @@
       isNormalUser = true;
       extraGroups = [
         "video"
+        "networkmanager"
         "dialout"
         "plugdev"
         "docker"
+        "adbusers"
       ];
       packages = with pkgs; [ ];
     };

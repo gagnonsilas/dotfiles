@@ -34,5 +34,9 @@
         "83048a0632885bba"
       ];
     };
+
+    tailscale = {
+      enable = true;
+    };
   };
 }

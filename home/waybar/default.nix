@@ -20,7 +20,7 @@
 
         modules-left = [ "sway/workspaces" "hyprland/workspaces" "sway/mode" "custom/waybar-mpris"];
         modules-center = [ "clock" ];
-        modules-right = [ "group/media" "sway/language" "group/hardware" "network" "tray"];
+        modules-right = [ "group/media" "sway/language" "hyprland/language" "group/hardware" "network" "tray"];
 
         "sway/workspaces" = {
           disable-scroll = true;
@@ -28,6 +28,9 @@
         };
 
         "sway/language" = {
+          "format" = "{variant}";
+        };
+        "hyprland/language" = {
           "format" = "{variant}";
         };
 

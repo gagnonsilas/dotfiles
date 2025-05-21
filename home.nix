@@ -83,8 +83,9 @@
     imagemagick
     pcsclite
     fzf
-    vesktop
+    legcord
     typst
+    bitwarden-desktop
 
     # Desktop
     xfce.thunar
@@ -112,6 +113,8 @@
     nmap
     iperf
     chirp
+    cheese
+    zathura
     
     # Services
     xdg-utils
@@ -134,7 +137,7 @@
     wine
     protontricks
     winetricks
-    # bottles
+    bottles
     samba
     ppp
     cabextract
@@ -144,8 +147,11 @@
     texliveSmall
     texlab
     remmina
-    rustdesk
+    # rustdesk
     libqalculate
+    kdePackages.kdeconnect-kde
+    scrcpy
+    chromium
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -206,6 +212,19 @@
   services.ssh-agent = {
     enable = true;
   };
+
+  programs.ssh = {
+    enable = true; 
+    extraConfig = ''
+    Host github.com
+      HostName github.com
+      IdentityFile ~/.ssh/github
+    Host serverworks
+      HostName 192.168.1.2
+      IdentityFile ~/.ssh/id_ed25519
+    '';
+  };
+
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
