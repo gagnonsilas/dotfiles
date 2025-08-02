@@ -14,6 +14,23 @@
     nerd-fonts.dejavu-sans-mono
   ];
 
+
+  xdg.autostart.enable = true;
+  
+
+  xdg.portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+        # xdg-desktop-portal-kde
+        xdg-desktop-portal-gtk
+      ];
+  };
+
+  services.swww.enable  = true;
+  
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -147,7 +164,6 @@
 
       exec-once = [
         "nm-applet -sm-disable"
-        "swww init"
         "waybar"
       ];
     };
