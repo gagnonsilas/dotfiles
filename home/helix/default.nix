@@ -123,7 +123,8 @@
     ];
 
     settings = {
-      theme = "doom_acario_dark";
+      # theme = "doom_acario_dark";
+      theme = "ayu_dark";
       editor = {
         bufferline = "always";
         end-of-line-diagnostics = "hint";
