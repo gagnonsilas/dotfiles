@@ -1,10 +1,16 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let 
+let
   mod = "Mod4";
   terminal = "foot";
   menu = "rofi -show drun -show-icons";
-in {
+in
+{
 
   home.packages = with pkgs; [
     slurp
@@ -31,7 +37,6 @@ in {
     };
   };
 
-  
   wayland.windowManager.sway = {
     enable = true;
     xwayland = true;
@@ -40,15 +45,18 @@ in {
       export _JAVA_AWT_WM_NONREPARENTING=1
     '';
 
-    config = { 
+    config = {
       modifier = mod;
-      
+
       terminal = "${terminal}";
 
       menu = "${menu}";
 
-      fonts = { 
-        names = [ "DejaVu Sans Mono" "FontAwesome 6" ];
+      fonts = {
+        names = [
+          "DejaVu Sans Mono"
+          "FontAwesome 6"
+        ];
         style = "Bold Semi-Condeensed";
         size = 11.0;
       };
@@ -79,7 +87,6 @@ in {
         "${mod}+r" = "mode resize";
         "${mod}+t" = "layout toggle tabbed split";
 
-
         # Sway
         "${mod}+Shift+c" = "restart";
         "${mod}+Shift+r" = "reload";
@@ -109,23 +116,22 @@ in {
 
         "${mod}+w" = "[class=\"Firefox\"] focus";
 
-
         "XF86Audioraisevolume" = "exec 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'";
-        "XF86Audiolowervolume" =  "exec 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'";
+        "XF86Audiolowervolume" = "exec 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'";
         "XF86AudioMute" = "exec 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'";
       };
 
       keycodebindings = {
         "233" = "exec light -A 5";
         "232" = "exec light -U 5";
-      }; 
+      };
 
       focus = {
         newWindow = "focus";
       };
 
       startup = [
-        { 
+        {
           command = "autotiling-rs";
           always = true;
         }
@@ -144,7 +150,7 @@ in {
         "*" = {
           xkb_layout = "us,us";
           xkb_variant = "colemak,";
-          xkb_options = "grp:alt_shift_toggle,caps:ctrl_modifier";          
+          xkb_options = "grp:alt_shift_toggle,caps:ctrl_modifier";
         };
         "type:touchpad" = {
           dwt = "enabled";
@@ -152,7 +158,7 @@ in {
           natural_scroll = "enabled";
         };
       };
-    
+
       gaps = {
         smartGaps = true;
         outer = 2;
@@ -161,10 +167,10 @@ in {
       };
 
       window = {
-         hideEdgeBorders = "smart";
-         titlebar = false;
-         border = 2;
-      }; 
+        hideEdgeBorders = "smart";
+        titlebar = false;
+        border = 2;
+      };
 
       bars = [
         {
@@ -184,13 +190,15 @@ in {
     '';
   };
 
-
   services.mako = {
     enable = true;
-    font = "monospace 8";
-    defaultTimeout = 10000;
-    borderSize = 2;
-    borderRadius = 4;
+    settings = {
+      font = "monospace 8";
+      defaultTimeout = 10000;
+      borderSize = 2;
+      borderRadius = 4;
+
+    };
   };
 
 }
