@@ -14,7 +14,7 @@
     ./home/discord
     ./home/foot
     ./home/git
-    ./home/formula
+    ./home/agzen
     ./home/direnv
     nix-colors.homeManagerModules.default
   ];
@@ -86,6 +86,8 @@
     legcord
     typst
     bitwarden-desktop
+    bitwarden-cli
+    comma
 
     # Desktop
     xfce.thunar
@@ -94,6 +96,7 @@
     gimp
     freecad
     prusa-slicer
+    bambu-studio
     obsidian
     vscode
     octaveFull
@@ -141,6 +144,8 @@
     samba
     ppp
     cabextract
+    stm32cubemx
+    libnotify
 
     # Font
     nasin-nanpa
@@ -152,6 +157,9 @@
     kdePackages.kdeconnect-kde
     scrcpy
     chromium
+    (writeShellScriptBin "current" ''
+    echo "$(cat /sys/class/power_supply/BAT1/current_now)uA * $(cat /sys/class/power_supply/BAT1/voltage_now)uV" | qc
+    '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
