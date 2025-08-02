@@ -68,22 +68,26 @@
     virtualbox.host.enable = true;
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-      # xdg-desktop-portal-kde
-      xdg-desktop-portal-gtk
-    ];
-
-    wlr = {
+  xdg = {
+    portal = {
       enable = true;
-      settings = {
-        screencast = {
-          output_name = "eDP-1";
-          max_fps = 30;
-          chooser_type = "simple";
-          chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+      xdgOpenUsePortal = true;
+
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+        # xdg-desktop-portal-kde
+        xdg-desktop-portal-gtk
+      ];
+
+      wlr = {
+        enable = true;
+        settings = {
+          screencast = {
+            output_name = "eDP-1";
+            max_fps = 60;
+            chooser_type = "simple";
+            chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+          };
         };
       };
     };
