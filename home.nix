@@ -96,7 +96,7 @@
     gimp
     freecad
     prusa-slicer
-    bambu-studio
+    # bambu-studio
     obsidian
     vscode
     octaveFull

@@ -194,9 +194,21 @@ in
     enable = true;
     settings = {
       font = "monospace 8";
-      defaultTimeout = 10000;
-      borderSize = 2;
-      borderRadius = 4;
+      default-timeout = 10000;
+      border-size = 2;
+      border-radius = 4;
+      background-color = "#232136";
+      "urgency=low" = {
+        border-color = "#3e8fb0";
+      };
+      "urgency=normal" = {
+        border-color = "#c4a7e7";
+      };
+      "urgency=high" = {
+        border-color = "#ff98ba";
+      };
+      # borderSize = 2;
+      # borderRadius = 4;
 
     };
   };

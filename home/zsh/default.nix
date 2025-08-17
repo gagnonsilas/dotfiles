@@ -27,9 +27,23 @@
       bindkey ';5C' vi-forward-word
       bindkey ';5D' vi-backward-word
       bindkey ';6C' forward-word 
-      bindkey ';6D' backward-word 
+      bindkey ';6D' backward-word
+      
+      # completion
       autoload -Uz compinit
-      compinit -i
+
+      for dump in ~/.zcompdump(N.mh+24); do
+          compinit
+      done
+
+      compinit -C
+
+      zstyle ':completion:*' menu yes select
+
+      if [[ "$\{terminfo[kcbt]}" != "" ]]; then
+        bindkey "$\{terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
+      fi
+
       eval "$(zoxide init --cmd cd zsh)"
       setopt no_global_rcs
       setopt PROMPT_SUBST
