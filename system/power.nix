@@ -22,25 +22,33 @@
     };
     upower = {
       enable = true;
-      percentageLow = 10;
+      percentageLow = 20;
       percentageAction = 5;
+      percentageCritical = 5;
       criticalPowerAction = "HybridSleep";
     };
-
-    logind = {
-      lidSwitch = "suspend";
-      powerKey = "hybrid-sleep";
+    logind.settings.Login = {
+      HandleLidSwitch = "suspend-then-hibernate";
+      IdleAction = "suspend-then-hibernate";
+      IdleActionSec = 60;
+      # KillUserProcesses = false;
     };
+    # logind = {
+    #   lidSwitch = "suspend-then-hibernate";
+    #   powerKey = "hybrid-sleep";
+    # };
 
   };
+
+  services.fwupd.enable = true;
   powerManagement = {
     enable = true;
     powertop.enable = false;
     # scsiLinkPolicy = "min_power";
-    powerDownCommands = ''
-      echo "CAN I UNSUSPEND LOCK?"
-      ${pkgs.swaylock-effects}/bin/swaylock
-    '';
+    # powerDownCommands = ''
+    #   echo "CAN I UNSUSPEND LOCK?"
+    #   ${pkgs.swaylock-effects}/bin/swaylock
+    # '';
     cpuFreqGovernor = "ondemand";
   };
 }

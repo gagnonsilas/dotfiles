@@ -93,4 +93,12 @@
     };
   };
 
+  services.ipp-usb.enable = true;
+  hardware.sane = {
+    enable = true;
+    extraBackends = with pkgs; [
+      hplipWithPlugin
+    ];
+  };
+
 }

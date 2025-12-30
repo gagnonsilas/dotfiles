@@ -28,22 +28,22 @@
     # networking.proxy.default = "http://user:password@proxy:port/";
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-    wg-quick.interfaces = {
-      serverworks = {
-        privateKeyFile = "/etc/wireguard/priv-key";
-        address = [ "10.0.0.4" ];
-        dns = [ "10.0.0.1" ];
+    # wg-quick.interfaces = {
+    #   serverworks = {
+    #     privateKeyFile = "/etc/wireguard/priv-key";
+    #     address = [ "10.0.9.4" ];
+    #     dns = [ "10.0.0.1" ];
 
-        peers = [
-          {
-            publicKey = "LDqLLPMJPuj1w2ea/JqEnDHcqeUxDqzgcu/rLAe8on4=";
-            endpoint = "75.130.94.103:14438";
-            persistentKeepalive = 25;
-            allowedIPs = [ "10.0.0.0/24" ];
-          }
-        ];
-      };
-    };
+    #     peers = [
+    #       {
+    #         publicKey = "LDqLLPMJPuj1w2ea/JqEnDHcqeUxDqzgcu/rLAe8on4=";
+    #         endpoint = "47.14.89.93:14438";
+    #         persistentKeepalive = 25;
+    #         allowedIPs = [ "10.0.9.0/24" ];
+    #       }
+    #     ];
+    #   };
+    # };
   };
 
   services = {

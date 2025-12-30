@@ -1,4 +1,9 @@
-{ config, pkgs, nix-colors, ... }:
+{
+  config,
+  pkgs,
+  nix-colors,
+  ...
+}:
 {
   imports = [
     ./home/sway
@@ -14,8 +19,9 @@
     ./home/discord
     ./home/foot
     ./home/git
-    ./home/agzen
+    ./home/formula
     ./home/direnv
+    # ./home/WPI
     nix-colors.homeManagerModules.default
   ];
 
@@ -46,7 +52,6 @@
   #       rev = "59c1ccec3e6b70f56eeee8f94d361019b84bd850";
   #       hash = "sha256-SsC73QPBIRkqH/ZI43oPHhug6/hiypgdP0t8n2aaiiQ=";
   #     };
-      
   #   });})
   # ];
 
@@ -96,10 +101,11 @@
     gimp
     freecad
     prusa-slicer
-    # bambu-studio
+    bambu-studio
     obsidian
     vscode
     octaveFull
+    octavePackages.statistics
     libreoffice-still
     gparted
     peek
@@ -118,7 +124,7 @@
     chirp
     cheese
     zathura
-    
+
     # Services
     xdg-utils
 
@@ -126,7 +132,7 @@
     networkmanagerapplet
     pavucontrol
     lxappearance
-    glxinfo
+    mesa-demos
     inxi
     acpi
     pciutils
@@ -157,8 +163,12 @@
     kdePackages.kdeconnect-kde
     scrcpy
     chromium
+    tldr
+    sdrpp
+    rtl-sdr
+    ltspice
     (writeShellScriptBin "current" ''
-    echo "$(cat /sys/class/power_supply/BAT1/current_now)uA * $(cat /sys/class/power_supply/BAT1/voltage_now)uV" | qc
+      echo "$(cat /sys/class/power_supply/BAT1/current_now)uA * $(cat /sys/class/power_supply/BAT1/voltage_now)uV" | qc
     '')
   ];
 
@@ -177,7 +187,6 @@
     # '';
   };
 
-
   # Random Configs
   xdg.desktopEntries = {
     helix = {
@@ -189,13 +198,13 @@
       type = "Application";
     };
 
-    ltspice = {
-      name = "ltspice";
-      genericName = "Circuit Simulator";
-      exec = "wine \"/home/silas/.wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx86.exe\"";
-      terminal = false;
-      type = "Application";
-    };
+    # ltspice = {
+    #   name = "ltspice";
+    #   genericName = "Circuit Simulator";
+    #   exec = "wine \"/home/silas/.wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx86.exe\"";
+    #   terminal = false;
+    #   type = "Application";
+    # };
     chirp = {
       name = "chirp";
       genericName = "Radio Programmer";
@@ -205,34 +214,32 @@
     };
   };
 
-
   programs.git = {
     enable = true;
-    userName = "gagnonsilas";
-    userEmail = "gagnon.silas@gmail.com";
-    extraConfig = {
+    settings = {
       pull.rebase = false;
       push.autoSetupRemote = true;
+      user.name = "gagnonsilas";
+      user.email = "gagnon.silas@gmail.com";
     };
   };
-
 
   services.ssh-agent = {
     enable = true;
   };
 
   programs.ssh = {
-    enable = true; 
+    enableDefaultConfig = true;
+    enable = true;
     extraConfig = ''
-    Host github.com
-      HostName github.com
-      IdentityFile ~/.ssh/github
-    Host serverworks
-      HostName 192.168.1.2
-      IdentityFile ~/.ssh/id_ed25519
+      Host github.com
+        HostName github.com
+        IdentityFile ~/.ssh/github
+      Host serverworks
+        HostName 192.168.1.2
+        IdentityFile ~/.ssh/id_ed25519
     '';
   };
-
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
@@ -244,20 +251,24 @@
   # or
   #
   #  /etc/profiles/per-user/silas/etc/profile.d/hm-session-vars.sh
-  #
+
+  # services.batsignal.enable = true;l
+  # programs.spicetify = {
+  #   enable = true;
+  # };
 
   home.shellAliases = {
-      ls = "ls --color=auto";
-      grep = "grep --color -i";
-      mkdir = "mkdir -p";
-      update = "sudo nixos-rebuild switch --flake /home/silas/.config/nix";
-      la = "ls -a";
-      rr = "rm -r";
-      vim = "echo ERROR";
-      hm = "home-manager --flake ~/.config/nix";
-      ec = "sudoedit /etc/nixos/configuration.nix";
-      eh = "hx ~/.config/nix/";
-      neofetch = "neofetch | lolcat";
+    ls = "ls --color=auto";
+    grep = "grep --color -i";
+    mkdir = "mkdir -p";
+    update = "sudo nixos-rebuild switch --flake /home/silas/.config/nix";
+    la = "ls -a";
+    rr = "rm -r";
+    vim = "echo ERROR";
+    hm = "home-manager --flake ~/.config/nix";
+    ec = "sudoedit /etc/nixos/configuration.nix";
+    eh = "hx ~/.config/nix/";
+    neofetch = "neofetch | lolcat";
   };
 
   home.sessionVariables = {

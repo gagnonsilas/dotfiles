@@ -40,7 +40,9 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+        ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
@@ -54,7 +56,7 @@
           nixos-hardware.nixosModules.framework-16-7040-amd # hardware config from: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
           ./system
           ./hosts/sansa/configuration.nix
-          waveforms.nixosModule
+          # waveforms.nixosModule
         ];
       };
     };

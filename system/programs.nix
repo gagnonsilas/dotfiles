@@ -2,6 +2,7 @@
 {
   programs = {
     zsh.enable = true;
+    wireshark.enable = true;
 
     adb.enable = true;
 
@@ -17,10 +18,10 @@
       dedicatedServer.openFirewall = true;
     };
 
-    alvr = {
-      enable = true;
-      openFirewall = true;
-    };
+    # alvr = {
+    #   enable = true;
+    #   openFirewall = true;
+    # };
 
     mtr.enable = true;
 
@@ -35,12 +36,15 @@
     helix
     wget
     lxqt.lxqt-policykit
+    pkgs.adwaita-icon-theme
+    gsettings-desktop-schemas
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.symbols-only
     nerd-fonts.dejavu-sans-mono
     xkcd-font
+    texlivePackages.atkinson
     charis-sil
   ];
 }

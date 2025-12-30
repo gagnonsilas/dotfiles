@@ -17,7 +17,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
   };
-  
+
   systemd.services = {
     fprintd = {
       wantedBy = [ "multi-user.target" ];
@@ -33,25 +33,43 @@
 
     power-profiles-daemon.enable = true; # recommended by FW team
 
-    
     udev = {
       enable = true;
       # ==== udev rules to configure wake from sleep ====
       # look for wakeup devices in /sys
       # find /sys -iwholename "*power/wakeup"
       # https://community.frame.work/t/framework-13-amd-sleep-s2idle-issues/54799/14
-      extraRules = ''
-        ACTION=="add", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled" 
-        ACTION=="add", SUBSYSTEM=="pci", DRIVER=="xhci_hcd", ATTR{power/wakeup}="disabled"
-        ACTION=="add", SUBSYSTEM=="pci", DRIVER=="thunderbolt", ATTR{power/wakeup}="disabled"
-        ACTION=="add", SUBSYSTEM=="serio", DRIVERS=="atkbd", ATTR{power/wakeup}="disabled"
-        ACTION=="add", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power/wakeup}="disabled"
+      extraRules = lib.strings.concatStrings [
+        #udev
+        ''
+          ACTION=="add", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled" 
+          ACTION=="add", SUBSYSTEM=="pci", DRIVER=="xhci_hcd", ATTR{power/wakeup}="disabled"
+          ACTION=="add", SUBSYSTEM=="pci", DRIVER=="thunderbolt", ATTR{power/wakeup}="disabled"
+          ACTION=="add", SUBSYSTEM=="serio", DRIVERS=="atkbd", ATTR{power/wakeup}="disabled"
+          ACTION=="add", SUBSYSTEM=="i2c", DRIVERS=="i2c_hid_acpi", ATTR{power/wakeup}="disabled"
 
-        SUBSYSTEMS=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3443", GROUP="plugdev", MODE="0666"
-        SUBSYSTEMS=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3442", GROUP="plugdev", MODE="0666"
-      '';
-    # ACTION=="add|change", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled"
-    # ACTION=="add|change", SUBSYSTEM=="acpi", DRIVERS=="button", ATTRS{hid}=="PNP0C0D", ATTR{power/wakeup}="disabled"
+          SUBSYSTEMS=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3443", GROUP="plugdev", MODE="0666"
+          SUBSYSTEMS=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3442", GROUP="plugdev", MODE="0666"
+
+        ''
+        #PLUTO SDR 
+        ''
+          # allow "plugdev" group read/write access to ADI PlutoSDR devices
+          # DFU Device
+          SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b674", MODE="0664", GROUP="plugdev"
+          SUBSYSTEM=="usb", ATTRS{idVendor}=="2fa2", ATTRS{idProduct}=="5a32", MODE="0664", GROUP="plugdev"
+          # SDR Device
+          SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b673", MODE="0664", GROUP="plugdev"
+          SUBSYSTEM=="usb", ATTRS{idVendor}=="2fa2", ATTRS{idProduct}=="5a02", MODE="0664", GROUP="plugdev"
+          # tell the ModemManager (part of the NetworkManager suite) that the device is not a modem, 
+          # and don't send AT commands to it
+          SUBSYSTEM=="usb", ATTRS{idVendor}=="0456", ATTRS{idProduct}=="b673", ENV{ID_MM_DEVICE_IGNORE}="1"
+          SUBSYSTEM=="usb", ATTRS{idVendor}=="2fa2", ATTRS{idProduct}=="5a02", ENV{ID_MM_DEVICE_IGNORE}="1"
+
+        ''
+      ];
+      # ACTION=="add|change", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled"
+      # ACTION=="add|change", SUBSYSTEM=="acpi", DRIVERS=="button", ATTRS{hid}=="PNP0C0D", ATTR{power/wakeup}="disabled"
 
     };
 
@@ -66,7 +84,12 @@
       "sd_mod"
     ];
 
-    blacklistedKernelModules = [ "k10temp" ];
+    blacklistedKernelModules = [
+      "k10temp"
+      "dvb_usb_rtl28xxu"
+      "rtl2832"
+      "rtl2830"
+    ];
     kernelModules = [
       "acpi_call"
       "cros_ec"
@@ -104,8 +127,6 @@
   '';
 
   #===== fw config settings end =====
-
-  
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

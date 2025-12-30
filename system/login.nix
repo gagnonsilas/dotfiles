@@ -21,6 +21,8 @@
         "plugdev"
         "docker"
         "adbusers"
+        "scanner"
+        "lp"
       ];
       packages = with pkgs; [ ];
     };

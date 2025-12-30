@@ -1,15 +1,7 @@
 { config, pkgs, ... }:
 let 
 # use http://inventree.com/api/user/token/ to get token
-      inv-query = pkgs.writeScriptBin "inv-query"  ''
-          #!${pkgs.zsh}/bin/zsh
-
-          ([[ $1 = "-r" ]] && (${pkgs.curl}/bin/curl -H "Authorization: Token inv-dc257db44013fbf5d205b0fa3138e607360816eb-20250721" "http://inventree.tortoise-chickadee.ts.net/api/part/" | ${pkgs.jq}/bin/jq -r '.[] | select(.IPN != "") | .IPN + "   " + .name + "   " + .description' > ~/.cache/agzen/inv-new.txt) && mv ~/.cache/agzen/inv-new.txt ~/.cache/agzen/inv.txt && notify-send "Inventory Updated")& 
-
-          IPN=$(cat ~/.cache/agzen/inv.txt | rofi -dmenu -i -matching-negate-char '\0' | sed 's/ .*//')
-          
-          [[ ! -z "$IPN" ]] && firefox http://inventree.tortoise-chickadee.ts.net/part/$IPN/
-      '';
+      inv-query = pkgs.writeScriptBin "inv-query" (builtins.readFile ./inv-query.sh);
 
       ki-open = pkgs.writeScriptBin "ki-open"  ''
           #!${pkgs.zsh}/bin/zsh

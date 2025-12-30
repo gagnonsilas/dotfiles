@@ -14,23 +14,94 @@
     nerd-fonts.dejavu-sans-mono
   ];
 
-
   xdg.autostart.enable = true;
-  
 
-  xdg.portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        hide_cursor = true;
+        ignore_empty_input = true;
+      };
 
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
-        # xdg-desktop-portal-kde
-        xdg-desktop-portal-gtk
+      animations = {
+        enabled = false;
+      };
+
+      background = [
+        {
+          path = "screenshot";
+          blur_passes = 3;
+          blur_size = 8;
+        }
       ];
+
+      input-field = {
+        size = "200, 50";
+        position = "0, -80";
+        monitor = "";
+        dots_center = true;
+        fade_on_empty = true;
+        font_color = "rgb(202, 211, 245)";
+        inner_color = "rgb(91, 96, 120)";
+        outer_color = "rgb(24, 25, 38)";
+        outline_thickness = 5;
+        # placeholder_text = '\'<span foreground="##cad3f5">Password...</span>'\';
+        shadow_passes = 2;
+      };
+
+      auth = {
+        fingerprint.enabled = true;
+      };
+    };
   };
 
-  services.swww.enable  = true;
-  
+  services = {
+    hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+          ignore_dbus_inhibit = false;
+          lock_cmd = "hyprlockk";
+          before_sleep_commmand = "hyprlock";
+        };
+
+        listener = [
+          # {
+          #   timeout = 10;
+          #   on-timeout = "notify-send \"ZZZZZZZ\"";
+          #   on-resume  = "notify-send \"BOO\"";
+          # }
+          {
+            timeout = 60 * 3;
+            on-timeout = "hyprlock";
+          }
+          {
+            timeout = 60 * 5;
+            on-timeout = "systemctl sleep";
+            # on-timeout = "hyprctl dispatch dpms off";
+            # on-resume = "hyprctl dispatch dpms on";
+          }
+        ];
+      };
+    };
+
+  };
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      # xdg-desktop-portal-kde
+      xdg-desktop-portal-gtk
+    ];
+  };
+
+  services.swww.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -55,58 +126,58 @@
         "$mod , mouse:272, movewindow"
         "$mod , mouse:273, resizewindow"
       ];
-      bind =
-        [
-          "$mod, F2, exec, firefox"
-          "$mod, Return, exec, foot"
-          "$mod, code:40, exec, rofi -show drun -show-icons"
-          "$mod Shift, Q, killactive,"
-          "$mod, space, togglefloating,"
-          "$mod, f, fullscreen,"
-          "$mod, t, togglegroup"
-          "$mod, r, changegroupactive"
-          
-          "$mod, Print, exec, grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
-          # "Print, exec, grim - | wl-copy -t image/png"
+      bind = [
+        "$mod, F2, exec, firefox"
+        "$mod, Return, exec, foot"
+        "$mod, code:40, exec, rofi -show drun -show-icons"
+        "$mod Shift, Q, killactive,"
+        "$mod, space, togglefloating,"
+        "$mod, f, fullscreen,"
+        "$mod, t, togglegroup"
+        "$mod, r, changegroupactive"
 
-          "$mod, left, movefocus, l"
-          "$mod, right, movefocus, r"
-          "$mod, up, movefocus, u"
-          "$mod, down, movefocus, d"
-          "$mod, h, movefocus, l"
-          "$mod, i, movefocus, r"
-          "$mod, e, movefocus, u"
-          "$mod, n, movefocus, d"
-          "$mod SHIFT, left, movewindow, l"
-          "$mod SHIFT, right, movewindow, r"
-          "$mod SHIFT, up, movewindow, u"
-          "$mod SHIFT, down, movewindow, d"
-          "$mod SHIFT, h, movewindow, l"
-          "$mod SHIFT, i, movewindow, r"
-          "$mod SHIFT, e, movewindow, u"
-          "$mod SHIFT, n, movewindow, d"
-          "$mod SHIFT, n, togglesplit" 
-        ]
-        ++ (
-          # workspaces
-          # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-          builtins.concatLists (
-            builtins.genList (
-              x:
-              let
-                ws =
-                  let
-                    c = (x + 1) / 10;
-                  in
-                  builtins.toString (x + 1 - (c * 10));
-              in
-              [
-                "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-              ]
-            ) 10
-          )
-        );
+        "$mod, Print, exec, grim -g \"$(slurp -d)\" - | wl-copy -t image/png"
+        # "Print, exec, grim - | wl-copy -t image/png"
+        "$mod, l, exec, hyprlock"
+
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+        "$mod, h, movefocus, l"
+        "$mod, i, movefocus, r"
+        "$mod, e, movefocus, u"
+        "$mod, n, movefocus, d"
+        "$mod SHIFT, left, movewindow, l"
+        "$mod SHIFT, right, movewindow, r"
+        "$mod SHIFT, up, movewindow, u"
+        "$mod SHIFT, down, movewindow, d"
+        "$mod SHIFT, h, movewindow, l"
+        "$mod SHIFT, i, movewindow, r"
+        "$mod SHIFT, e, movewindow, u"
+        "$mod SHIFT, n, movewindow, d"
+        "$mod SHIFT, n, togglesplit"
+      ]
+      ++ (
+        # workspaces
+        # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+        builtins.concatLists (
+          builtins.genList (
+            x:
+            let
+              ws =
+                let
+                  c = (x + 1) / 10;
+                in
+                builtins.toString (x + 1 - (c * 10));
+            in
+            [
+              "$mod, ${ws}, workspace, ${toString (x + 1)}"
+              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+            ]
+          ) 10
+        )
+      );
 
       monitor = [
         ",preferred,auto,auto"
@@ -122,7 +193,7 @@
         touchpad = {
           scroll_factor = 0.4;
           natural_scroll = true;
-        }; 
+        };
         force_no_accel = false;
         accel_profile = "adaptive";
         sensitivity = 0.2;
@@ -136,30 +207,32 @@
       };
 
       dwindle = {
-          # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-          pseudotile = true;
-          preserve_split = true;
-          # special_scale_factor = 1;
-          permanent_direction_override = true;
-          # split_width_multiplier = 1;
-          # force_split = 1;
-          # preserve_split = true;
-          # smart_resizing = false;
+        # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
+        pseudotile = true;
+        preserve_split = true;
+        # special_scale_factor = 1;
+        permanent_direction_override = true;
+        # split_width_multiplier = 1;
+        # force_split = 1;
+        # preserve_split = true;
+        # smart_resizing = false;
       };
 
-      gestures = {
-          workspace_swipe = true;
-          workspace_swipe_invert = true;
-          # workspace_swipe_distance = 100;
-          workspace_swipe_cancel_ratio = 0.5;
-          # workspace_swipe_numbered = true;
-          workspace_swipe_create_new = false;
-      };
+      gesture = "3, horizontal, workspace";
+
+      # gestures = {
+      #     workspace_swipe = true;
+      #     workspace_swipe_invert = true;
+      #     # workspace_swipe_distance = 100;
+      #     workspace_swipe_cancel_ratio = 0.5;
+      #     # workspace_swipe_numbered = true;
+      #     workspace_swipe_create_new = false;
+      # };
 
       misc = {
-          disable_hyprland_logo = true;
-          vfr = true;
-          focus_on_activate = true;
+        disable_hyprland_logo = true;
+        vfr = true;
+        focus_on_activate = true;
       };
 
       exec-once = [
