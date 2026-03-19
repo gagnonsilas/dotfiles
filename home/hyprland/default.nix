@@ -61,25 +61,25 @@
       enable = true;
       settings = {
         general = {
+          before_sleep_commmand = "hyprlock --no-fade-in";
           after_sleep_cmd = "hyprctl dispatch dpms on";
           ignore_dbus_inhibit = false;
-          lock_cmd = "hyprlockk";
-          before_sleep_commmand = "hyprlock";
+          lock_cmd = "hyprlock --no-fade-in";
         };
 
         listener = [
-          # {
-          #   timeout = 10;
-          #   on-timeout = "notify-send \"ZZZZZZZ\"";
-          #   on-resume  = "notify-send \"BOO\"";
-          # }
           {
-            timeout = 60 * 3;
+            timeout = 60 * 5;
+            on-timeout = "brightnessctl --save && brightnessctl s 50-";
+            on-resume  = "brightnessctl --restore";
+          }
+          {
+            timeout = 60 * 6;
             on-timeout = "hyprlock";
           }
           {
-            timeout = 60 * 5;
-            on-timeout = "systemctl sleep";
+            timeout = 60 * 8;
+            on-timeout = "systemctl suspend";
             # on-timeout = "hyprctl dispatch dpms off";
             # on-resume = "hyprctl dispatch dpms on";
           }
@@ -181,6 +181,8 @@
 
       monitor = [
         ",preferred,auto,auto"
+        "HDMI-A-1,preferred,auto,1"
+
         "eDP-1,preferred,auto,1"
       ];
 

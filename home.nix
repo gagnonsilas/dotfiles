@@ -93,6 +93,7 @@
     bitwarden-desktop
     bitwarden-cli
     comma
+    svxlink
 
     # Desktop
     xfce.thunar
@@ -102,6 +103,7 @@
     freecad
     prusa-slicer
     bambu-studio
+    orca-slicer
     obsidian
     vscode
     octaveFull
@@ -141,6 +143,8 @@
     jdk8
     prismlauncher
     alsa-oss
+
+    audacity
 
     # Windowsnn
     wine
