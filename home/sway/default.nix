@@ -15,7 +15,7 @@ in
   home.packages = with pkgs; [
     slurp
     grim
-    swww
+    awww
     waybar
     foot
     autotiling-rs
@@ -141,7 +141,7 @@ in
           # notification = true;
         }
         {
-          command = "swww init";
+          command = "awww init";
           always = false;
         }
       ];
@@ -190,11 +190,12 @@ in
     '';
   };
 
+  # Notifications  
   services.mako = {
     enable = true;
     settings = {
       font = "monospace 8";
-      default-timeout = 10000;
+      default-timeout = 30000;
       border-size = 2;
       border-radius = 4;
       background-color = "#232136";

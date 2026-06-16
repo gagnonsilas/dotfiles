@@ -29,7 +29,7 @@
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
+    "electron-39.8.10"
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -65,7 +65,7 @@
     lazygit
     sshfs
     htop-vim
-    neofetch
+    fastfetch
     killall
     sl
     lolcat
@@ -90,10 +90,12 @@
     fzf
     legcord
     typst
-    bitwarden-desktop
-    bitwarden-cli
+    # bitwarden-desktop
+    # bitwarden-cli
     comma
     svxlink
+    meld
+    kdePackages.filelight
 
     # Desktop
     xfce.thunar
@@ -102,7 +104,6 @@
     gimp
     freecad
     prusa-slicer
-    bambu-studio
     orca-slicer
     obsidian
     vscode
@@ -225,6 +226,9 @@
       push.autoSetupRemote = true;
       user.name = "gagnonsilas";
       user.email = "gagnon.silas@gmail.com";
+      merge.tool = "meld";
+      mergetool."meld" = "cmd = meld \"$LOCAL\" \"$MERGED\" \"$REMOTE\" --output \"$MERGED\"";
+
     };
   };
 

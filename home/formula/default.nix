@@ -1,18 +1,29 @@
-{ config, pkgs, ... }:
-let 
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+let
 
-      inv-query = pkgs.writeShellScriptBin "inv-query" (builtins.readFile ./inv-query.sh);
+  inv-query = pkgs.writeScriptBin "inv-query" (
+    ''
+      #!${pkgs.nushell}/bin/nu
+    ''
+    + (builtins.readFile ./inv-query.nu)
+  );
 
-      ki-open = pkgs.writeScriptBin "ki-open"  ''
-          #!${pkgs.zsh}/bin/zsh
+  ki-open = pkgs.writeScriptBin "ki-open" ''
+    #!${pkgs.zsh}/bin/zsh
 
-          PROJECT=$(tree ~/projects -fi -L 5 | grep .kicad_pro | sed 's/\.\///' | rofi -dmenu -i -matching-negate-char '\0')
+    PROJECT=$(tree ~/projects -fi -L 5 | grep .kicad_pro | sed 's/\.\///' | rofi -dmenu -i -matching-negate-char '\0')
 
-          [[ ! -z "$PROJECT" ]] && kicad $PROJECT
+    [[ ! -z "$PROJECT" ]] && kicad $PROJECT
 
-      '';
+  '';
 
-in {
+in
+{
   home.packages = [
     inv-query
     ki-open
@@ -33,5 +44,5 @@ in {
       terminal = false;
       type = "Application";
     };
-  }; 
+  };
 }

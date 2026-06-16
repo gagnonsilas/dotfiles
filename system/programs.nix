@@ -4,14 +4,11 @@
     zsh.enable = true;
     wireshark.enable = true;
 
-    adb.enable = true;
 
     sway = {
       enable = true;
     };
-
-    light.enable = true; # Volume and brightness key
-
+    
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -45,6 +42,6 @@
     nerd-fonts.dejavu-sans-mono
     xkcd-font
     texlivePackages.atkinson
-    charis-sil
+    charis
   ];
 }

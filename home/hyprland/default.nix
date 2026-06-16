@@ -74,8 +74,8 @@
             on-resume  = "brightnessctl --restore";
           }
           {
-            timeout = 60 * 6;
-            on-timeout = "hyprlock";
+            # timeout = 60 * 6;
+            # on-timeout = "hyprlock";
           }
           {
             timeout = 60 * 8;
@@ -100,7 +100,8 @@
     ];
   };
 
-  services.swww.enable = true;
+
+  services.awww.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -156,7 +157,7 @@
         "$mod SHIFT, i, movewindow, r"
         "$mod SHIFT, e, movewindow, u"
         "$mod SHIFT, n, movewindow, d"
-        "$mod SHIFT, n, togglesplit"
+        "$mod SHIFT, n, layoutmsg, togglesplit"
       ]
       ++ (
         # workspaces
@@ -210,7 +211,7 @@
 
       dwindle = {
         # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-        pseudotile = true;
+        # pseudotile = true;
         preserve_split = true;
         # special_scale_factor = 1;
         permanent_direction_override = true;
@@ -233,7 +234,7 @@
 
       misc = {
         disable_hyprland_logo = true;
-        vfr = true;
+        # vfr = true;
         focus_on_activate = true;
       };
 

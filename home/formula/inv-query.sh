@@ -3,3 +3,5 @@
 IPN=$(cat ~/.cache/fsae/inv.txt | rofi -dmenu -i -matching-negate-char '\0' | sed 's/ .*//')
 
 [[ ! -z "$IPN" ]] && firefox "http://docker.goatfastracing.com:10003/part/$IPN/"
+
+

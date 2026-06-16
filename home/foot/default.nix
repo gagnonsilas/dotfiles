@@ -18,7 +18,7 @@
         # font = "monospace:siez=9.5";
       };
 
-      colors = {
+      colors-dark = {
         
           background="232136";
           foreground="e0def4";
