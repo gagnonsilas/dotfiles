@@ -28,8 +28,8 @@
       criticalPowerAction = "HybridSleep";
     };
     logind.settings.Login = {
-      HandleLidSwitch = "suspend-then-hibernate";
-      IdleAction = "suspend-then-hibernate";
+      HandleLidSwitch = "suspend";
+      IdleAction = "suspend";
       IdleActionSec = 60;
       # KillUserProcesses = false;
     };

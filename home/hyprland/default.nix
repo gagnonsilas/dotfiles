@@ -58,7 +58,7 @@
 
   services = {
     hypridle = {
-      enable = true;
+      enable = false;
       settings = {
         general = {
           before_sleep_commmand = "hyprlock --no-fade-in";

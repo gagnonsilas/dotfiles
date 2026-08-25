@@ -90,6 +90,7 @@
     fzf
     legcord
     typst
+    obs-studio
     # bitwarden-desktop
     # bitwarden-cli
     comma
@@ -157,6 +158,8 @@
     cabextract
     stm32cubemx
     libnotify
+    greetd
+    tuigreet
 
     # Font
     nasin-nanpa
